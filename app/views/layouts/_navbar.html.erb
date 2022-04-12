@@ -1,0 +1,35 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light p-2 px-lg-5">
+        <div class="container-fluid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill text-dark" viewBox="0 0 16 16">
+                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+            </svg>
+            <%= link_to "Word Genius", root_path, class:"navbar-brand m-0 p-0" %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse w-100" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <%= link_to "Home", root_path, class:"nav-link fw-bolder" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "About", about_path, class:"nav-link fw-bolder" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Contact", contact_path, class:"nav-link fw-bolder" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Sign up", "#", class:"nav-link fw-bolder" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Log in", "#", class:"nav-link fw-bolder" %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
