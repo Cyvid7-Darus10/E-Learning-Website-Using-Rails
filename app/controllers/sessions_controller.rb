@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -15,5 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out 
+    flash[:success] = "You have been logged out."
+    redirect_to root_path
   end
 end
