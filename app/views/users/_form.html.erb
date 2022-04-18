@@ -1,4 +1,11 @@
 <%= form_with(model: @user, local: true) do |f| %>
+    <% unless current_page?(signup_path) %>
+        <div class="form-group mt-4">
+            <%= f.label :avatar, class:"fw-bolder" %>
+            <%= f.file_field :image, class: "form-control" %>
+        </div>
+    <% end %>
+
     <div class="form-group mt-4">
         <%= f.label :name, class:"fw-bolder" %>
         <%= f.text_field :name, class: "form-control" %>
