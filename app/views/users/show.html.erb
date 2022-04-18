@@ -1,2 +1,42 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide(:title, @user.name) %>
+<div class="row px-5 m-0">
+    <div class="col-lg-4">
+        <div class="card glass-background">
+            <div class="card-body text-center">
+                <div class="col-4 mx-auto">
+                    <%= profile_image(@user) %>
+                </div>
+                <h3><%= @user.name %></h3>
+                <p><%= @user.email %></p>
+                <% if current_user.id == @user.id %>
+                    <div class="d-flex justify-content-center">
+                        <%= link_to "View Profile", "#", class:"btn btn-warning" %>
+                        <%= link_to "Update Profile", "#", class:"btn btn-primary ms-2" %>
+                    </div>
+                <% end %>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <h4><span class="fw-bolder">5</span> following</h4>
+                    </div>
+                    <div class="col-6">
+                        <h4><span class="fw-bolder">4</span> followers</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="p-3 rounded text-center bg-danger">
+                    <h1 class="fw-bolder">5</h1>
+                    <p>words learned</p>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="col-lg-8">
+        <h2 class="fw-bolder mt-3 mt-lg-0">Feed</h2>
+        <hr>
+        <div class="d-flex align-items-center glass-background p-2 rounded">
+            Nothing to Show
+        </div>
+    </div>
+</div>
