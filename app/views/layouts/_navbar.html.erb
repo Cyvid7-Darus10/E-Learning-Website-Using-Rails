@@ -43,6 +43,10 @@
                                 <%= link_to "Profile", current_user, class:"dropdown-item" %>
                                 <%= link_to "Edit Profile", edit_user_path(current_user), class:"dropdown-item" %>
                                 <%= link_to "Users", "#", class:"dropdown-item" %>
+                                <% if current_user.is_admin? %>
+                                    <div class="dropdown-divider"></div>
+                                    <%= link_to "User Management", admin_users_path, class:"dropdown-item" %>
+                                <% end %>
                                 <div class="dropdown-divider"></div>
                                 <%= link_to "Logout", logout_path, class:"dropdown-item" %>
                             </ul>
