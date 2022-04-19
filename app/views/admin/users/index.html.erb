@@ -2,24 +2,30 @@
 
 <div class="container">
     <table class="table glass-background table-bordered text-white">
-    <thead>
-        <tr class="text-center">
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @users.each_with_index do |user, index| %>
-            <tr>
-            <th scope="row"><%= index + 1 %></th>
-            <td><%= link_to user.name, user, class: "text-decoration-none" %></td>
-            <td><%= user.email %></td>
-            <td class="text-center"><%= link_to "Make as Admin", user, class: "btn btn-danger"  %></td>
+        <thead>
+            <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
             </tr>
-        <% end %>
-    </tbody>
+        </thead>
+        <tbody>
+            <% @users.each_with_index do |user, index| %>
+                <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= link_to user.name, user, class: "text-decoration-none" %></td>
+                <td><%= user.email %></td>
+                <td class="text-center">
+                    <% if user.is_admin? %>
+                        <%= link_to 'Remove as Admin', admin_users_path(:id => user.id), data: {confirm: 'Are you sure?'}, class: "btn btn-info" %>
+                    <% else %>
+                        <%= link_to "Set as Admin", admin_users_path(:id => user.id), data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+                    <% end %>
+                </td>
+                </tr>
+            <% end %>
+        </tbody>
     </table>
 </div>
 
