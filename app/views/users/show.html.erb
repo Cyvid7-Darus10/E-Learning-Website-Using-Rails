@@ -4,7 +4,11 @@
         <div class="card glass-background">
             <div class="card-body text-center">
                 <div class="col-4 mx-auto">
+                <% if @user.image.attached? %>
+                    <%= image_tag @user.image, class: "rounded-circle w-100" %>
+                <% else %>
                     <%= profile_image(@user) %>
+                <% end %>
                 </div>
                 <h3><%= @user.name %></h3>
                 <p><%= @user.email %></p>
