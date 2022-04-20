@@ -1,6 +1,6 @@
 <% provide(:title, 'Category Admin') %>
 <div class="container">
-    <%= link_to 'Add Category', admin_new_category_path, class: "mb-3 btn btn-success float-end" %>
+    <%= link_to 'Add Category', new_admin_category_path, class: "mb-3 btn btn-success float-end" %>
     <table class="table glass-background table-bordered text-white">
         <thead>
             <tr class="text-center">
@@ -18,7 +18,7 @@
                 <td class="text-center"><%= category.words.count %></td>
                 <td class="text-center">
                     <%= link_to 'Add Word', "", class: "btn btn-primary" %>
-                    <%= link_to 'Edit', admin_edit_category_path(:id => category), class: "btn btn-warning" %>
+                    <%= link_to 'Edit', edit_admin_category_path(:id => category), class: "btn btn-warning" %>
                     <%= link_to "Delete", "",  class: "btn btn-danger" %>
                 </td>
                 </tr>
@@ -28,5 +28,5 @@
 </div>
 
 <div class="d-flex justify-content-center">
-    <%= will_paginate @users %>
+    <%= will_paginate @categories %>
 </div>	

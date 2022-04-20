@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'login',    to: 'sessions#new'
   get 'logout',   to: 'sessions#destroy'
 
-  get 'admin/new_category',   to: 'admin/categories#new'
-  get 'admin/edit_category',   to: 'admin/categories#edit'
-
   resources :users
   resources :sessions, only: :create
   resources :categories
