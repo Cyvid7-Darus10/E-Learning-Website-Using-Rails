@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  has_many :words
-  belongs_to :lesson
+  has_many :words, dependent: :destroy
+  has_many :lessons, depedent: :destroy
 end

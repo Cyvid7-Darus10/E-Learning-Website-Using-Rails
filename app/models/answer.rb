@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  belongs_to :choice, dependent: :destroy
-  belongs_to :lesson, dependent: :destroy
-  belongs_to :word, dependent: :destroy
+  belongs_to :choice
+  belongs_to :lesson
+  belongs_to :word
 end

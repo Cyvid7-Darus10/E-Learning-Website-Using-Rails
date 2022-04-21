@@ -1,4 +1,4 @@
 class Choice < ApplicationRecord
+  has_many   :answers, dependent: :destroy
   belongs_to :word
-  has_many answers, dependent: :destroy
 end
