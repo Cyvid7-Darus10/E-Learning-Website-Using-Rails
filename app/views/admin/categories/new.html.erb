@@ -1,0 +1,8 @@
+<% provide(:title, 'Create Category') %>
+<div class="container mt-3">
+    <div class="col-xl-6 mx-auto glass-background p-3 rounded">
+        <%= render "shared/error_messages", object: @category %>
+        <h1 class="text-center">Add a Category</h1>
+        <%= render "form", btn_msg: "Create a Category" %>
+    </div>
+</div>

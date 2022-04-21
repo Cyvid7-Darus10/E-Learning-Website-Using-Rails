@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-light p-2 px-lg-5">
-        <div class="container-fluid">
+        <div class="container-fluid p-0 px-lg-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill text-dark" viewBox="0 0 16 16">
                 <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
             </svg>
@@ -9,7 +9,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse w-100" id="navbarCollapse">
+            <div class="collapse navbar-collapse w-100 p-0 pe-lg-4" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <%= link_to "Home", root_path, class:"nav-link fw-bolder" %>
@@ -46,6 +46,7 @@
                                 <% if current_user.is_admin? %>
                                     <div class="dropdown-divider"></div>
                                     <%= link_to "User Management", admin_users_path, class:"dropdown-item" %>
+                                    <%= link_to "Category Management", admin_categories_path, class:"dropdown-item" %>
                                 <% end %>
                                 <div class="dropdown-divider"></div>
                                 <%= link_to "Logout", logout_path, class:"dropdown-item" %>

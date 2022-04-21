@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: :create
+  resources :categories
 
   namespace :admin do
     resources :users
+    resources :categories
   end
 end

@@ -1,0 +1,8 @@
+<% provide(:title, 'Edit Category') %>
+<div class="container my-3">
+    <div class="col-md-6 mx-auto glass-background p-3">
+        <%= render "shared/error_messages", object: @category %>
+        <h1 class="text-center">Edit Category</h1>
+        <%= render "form", btn_msg: "Update Category" %>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<% provide(:title, 'Category Admin') %>
+<div class="container">
+    <%= link_to 'Add Category', new_admin_category_path, class: "mb-3 btn btn-success float-end" %>
+    <table class="table glass-background table-bordered text-white">
+        <thead>
+            <tr class="text-center">
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Words</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @categories.each do |category| %>
+                <tr>
+                <th><%= category.title %></th>
+                <td><%= category.description %></td>
+                <td class="text-center"><%= category.words.count %></td>
+                <td class="text-center">
+                    <%= link_to 'Add Word', "", class: "btn btn-primary" %>
+                    <%= link_to 'Edit', edit_admin_category_path(:id => category), class: "btn btn-warning" %>
+                    <%= link_to "Delete", "",  class: "btn btn-danger" %>
+                </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-center">
+    <%= will_paginate @categories %>
+</div>	
