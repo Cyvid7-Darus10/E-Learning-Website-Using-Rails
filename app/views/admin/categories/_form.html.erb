@@ -1,6 +1,7 @@
-<%= form_with(model: @category, local: true) do |f| %>
-    <div class="input-group mt-4">
-        <span class="input-group-text"><%= f.label :title, class:"fw-bolder"%></span>
+<%= form_for [:admin, @category] do |f| %>
+
+    <div class="form-group mt-4">
+        <%= f.label :title, class:"fw-bolder" %>
         <%= f.text_field :title, class: "form-control" %>
     </div>
 
