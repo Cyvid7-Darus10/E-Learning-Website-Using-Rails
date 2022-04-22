@@ -42,12 +42,7 @@ class Admin::CategoriesController < ApplicationController
       flash[:danger] = "Category was not deleted successfully."
     end
   end
-
-  def show
-    @category = Category.find_by_id(params[:id])
-    @words = @category.words.paginate(page: params[:page], per_page: 9).order(created_at: :desc)
-  end
-
+  
   private
   def category_params
     params.require(:category).permit(:title, :description)

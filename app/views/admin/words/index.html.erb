@@ -2,7 +2,7 @@
 <div class="container">
     <div class="w-100">
         <span class="h4 text-dark">Words List for "<span class="fw-bolder"><%= @category.title %></span>" Category</span>
-        <%= link_to 'Add Word', new_admin_category_path, class: "mb-3 btn btn-success float-end" %>
+        <%= link_to 'Add Word', new_admin_category_word_path, class: "mb-3 btn btn-success float-end" %>
         <p><%= @category.description %></p>
     </div>
     <table class="table glass-background table-bordered text-white">
