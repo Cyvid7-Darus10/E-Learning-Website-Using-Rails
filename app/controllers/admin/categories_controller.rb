@@ -34,13 +34,18 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    if @category.destroy
+    @category = Category.find_by_id(params[:id])
+    if @category && @category.destroy
       flash[:success] = "Category was successfully deleted"
       redirect_to admin_categories_path
     else
       flash[:danger] = "Category was not deleted successfully."
     end
+  end
+
+  def show
+    @category = Category.find_by_id(params[:id])
+    @words = @category.words.paginate(page: params[:page], per_page: 9).order(created_at: :desc)
   end
 
   private
