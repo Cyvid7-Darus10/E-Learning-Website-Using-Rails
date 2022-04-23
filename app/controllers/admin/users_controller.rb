@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :correct_user
+  before_action :authorized_user
 
   def index
     if params[:id]
@@ -22,12 +22,5 @@ class Admin::UsersController < ApplicationController
       flash[:danger] = "User does not exist."
     end
     redirect_to admin_users_path
-  end
-
-  def correct_user
-    if !current_user || !current_user.is_admin?
-      flash[:danger] = "You are not authorized to perform this action."
-      redirect_to root_path
-    end
   end
 end
