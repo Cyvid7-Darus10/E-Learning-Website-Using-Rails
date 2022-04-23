@@ -25,8 +25,13 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find_by_id(params[:category_id])
+    @word = Word.find(params[:id])
+  end
+
   private
   def word_params
-    params.require(:word).permit(:content, choices_attributes: [:content, :is_correct])
+    params.require(:word).permit(:content, choices_attributes: [:id, :content, :is_correct])
   end
 end

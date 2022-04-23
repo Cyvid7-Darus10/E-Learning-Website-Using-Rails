@@ -7,11 +7,10 @@
     <%= f.fields_for :choices do |choice_f| %>
         <div class="input-group mt-4">
             <div class="input-group-text">
-                <%= choice_f.radio_button :is_correct, 1, class: "form-check-input mt-0", 'aria-label' => "Radio button for following text input" %>
+                <%= choice_f.check_box :is_correct, class: "form-check-input mt-0", 'aria-label' => "Radio button for following text input" %>
             </div>
             <%= choice_f.text_field :content, 'aria-label' =>  "Text input with radio button", placeholder: "Choice #{choice_f.index + 1}", class: "form-control" %>
         </div>
     <% end %>
-    
     <%= f.submit class:"btn btn-primary w-100 mt-3" %>
 <% end %>

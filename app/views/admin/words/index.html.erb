@@ -26,7 +26,7 @@
                                 Action
                             </button>
                             <ul class="dropdown-menu">
-                                <li><%= link_to 'Edit', "", class: "dropdown-item text-warning" %></li>
+                                <li><%= link_to 'Edit', edit_admin_category_word_path(:id => word), class: "dropdown-item text-warning" %></li>
                                 <li><%= link_to "Delete", "", data: {confirm: 'Are you sure?'}, :method => :delete, class: "dropdown-item text-danger" %></li>
                             </ul>
                         </div>
