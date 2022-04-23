@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def authorized_user
+    unless current_user && current_user.is_admin?
+      flash[:danger] = "You are not authorized to perform this action."
+      redirect_to root_path
+    end
+  end
 end

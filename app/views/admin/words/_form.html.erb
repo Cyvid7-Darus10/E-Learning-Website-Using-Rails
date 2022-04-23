@@ -1,4 +1,4 @@
-<%= form_with do |f| %>
+<%= form_with model: [:admin, @category, @word], local: true do |f| %>
     <div class="form-group mt-4">
         <%= f.label :content, class:"fw-bolder" %>
         <%= f.text_field :content, class: "form-control" %>
@@ -6,16 +6,10 @@
     <hr>
     <%= f.fields_for :choices do |choice_f| %>
         <div class="input-group mt-4">
-            <%= choice_f.text_field :content, placeholder: "Choice 1", class: "form-control me-2" %>
-            <%= f.radio_button :is_correct, true, class: "form-check-input" %>
-        </div>
-        <div class="input-group mt-4">
-            <%= choice_f.text_field :content, placeholder: "Choice 2", class: "form-control me-2" %>
-            <%= f.radio_button :is_correct, true, class: "form-check-input" %>
-        </div>
-        <div class="input-group mt-4">
-            <%= choice_f.text_field :content, placeholder: "Choice 3", class: "form-control me-2" %>
-            <%= f.radio_button :is_correct, true, class: "form-check-input" %>
+            <div class="input-group-text">
+                <%= choice_f.radio_button :is_correct, 1, class: "form-check-input mt-0", 'aria-label' => "Radio button for following text input" %>
+            </div>
+            <%= choice_f.text_field :content, 'aria-label' =>  "Text input with radio button", placeholder: "Choice #{choice_f.index + 1}", class: "form-control" %>
         </div>
     <% end %>
     
