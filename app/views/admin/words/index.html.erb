@@ -1,7 +1,10 @@
 <% provide(:title, 'Category Admin') %>
 <div class="container">
     <div class="w-100">
-        <span class="h4 text-dark">Words List for "<span class="fw-bolder"><%= @category.title %></span>" Category</span>
+        <h1 class="h4 text-dark">
+            <%= @category.title %> >
+            <span class="text-white">View</span> 
+        </h1>
         <%= link_to 'Add Word', new_admin_category_word_path, class: "mb-3 btn btn-success float-end" %>
         <p><%= @category.description %></p>
     </div>
@@ -26,7 +29,7 @@
                                 Action
                             </button>
                             <ul class="dropdown-menu">
-                                <li><%= link_to 'Edit', "", class: "dropdown-item text-warning" %></li>
+                                <li><%= link_to 'Edit', edit_admin_category_word_path(@category, word), class: "dropdown-item text-warning" %></li>
                                 <li><%= link_to "Delete", "", data: {confirm: 'Are you sure?'}, :method => :delete, class: "dropdown-item text-danger" %></li>
                             </ul>
                         </div>
