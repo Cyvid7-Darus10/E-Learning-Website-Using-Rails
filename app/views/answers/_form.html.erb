@@ -1,0 +1,11 @@
+<%= form_with model: [@answer], local: true do |f| %>
+    <% @category.words.each do |word| %>
+        <div class="text-center h3 text-info">
+            <%= word.content%>
+            <span class="text-warning">(1 of 1)</span>
+        </div>
+        <% word.choices.each do |choice| %>
+            <%= f.submit "#{choice.content}", class:"btn btn-primary w-100 mt-3" %>
+        <% end %>
+    <% end %>
+<% end %>

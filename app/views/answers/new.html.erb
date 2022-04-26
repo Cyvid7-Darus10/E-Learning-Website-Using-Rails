@@ -1,0 +1,8 @@
+<% provide(:title, 'Answer Category') %>
+<div class="container mt-3">
+    <div class="col-xl-6 mx-auto glass-background p-3 rounded">
+        <%= render "shared/error_messages", object: @answer %>
+        <h1 class="text-center"><%= @category.title %></h1>
+        <%= render "form" %>
+    </div>
+</div>

@@ -24,7 +24,7 @@
                                 <h4><%= link_to category.title, '', class: "text-decoration-none" %></h4>
                                 <p class="text-warning">[<%= category.words.count %> Words]</p>
                                 <p><%= category.description %></p>
-                                <%= link_to "Learn", '', class: "btn btn-primary w-100"  %>
+                                <%= link_to "Learn", new_answer_path(category), class: "btn btn-primary w-100"  %>
                             </div>
                         </div>                    
                     </div>

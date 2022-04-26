@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: :create
   resources :categories
+  resources :answers
 
   namespace :admin do
     resources :users
