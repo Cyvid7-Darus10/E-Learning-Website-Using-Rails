@@ -1,9 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @filter = ''
-    if params[:filter]
-      @filter = params[:filter]
-    end
+    @filter = params[:filter] ? params[:filter] : ""
 
     @categories = Category.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
 
