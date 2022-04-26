@@ -9,9 +9,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: :create
-  resources :categories do
-    resources :answers
-  end
+  resources :categories
+  resources :answers
 
   namespace :admin do
     resources :users
