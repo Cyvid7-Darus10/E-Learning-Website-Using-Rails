@@ -1,0 +1,38 @@
+<% provide(:title, 'Categories') %>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="display-6">
+            Categories 
+            <span class="text-warning">
+                (<%= @categories.count %>)
+            </span>
+        </span>
+        <div class="d-flex">
+            <%= link_to "All", '?filter=', class: "btn #{@filter == '' ? 'btn-primary' : ''}"  %>
+            <%= link_to "Learned", '?filter=learned', class: "btn #{@filter == 'learned' ? 'btn-primary' : ''}"  %>
+            <%= link_to "Not Learned", '?filter=not_learned', class: "btn #{@filter == 'not_learned' ? 'btn-primary' : ''}"  %>
+        </div>
+    </div>
+    <div class="row text-center">
+        <% @categories.each do |category| %>
+            <div class="col-lg-4">
+                <div class="card glass-background">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4><%= link_to category.title, '', class: "text-decoration-none" %></h4>
+                                <p class="text-warning">[<%= category.words.count %> Words]</p>
+                                <p><%= category.description %></p>
+                                <%= link_to "Learn", '', class: "btn btn-primary w-100"  %>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="d-flex justify-content-center">
+        <%= will_paginate @categories %>
+    </div>	
+</div>	
