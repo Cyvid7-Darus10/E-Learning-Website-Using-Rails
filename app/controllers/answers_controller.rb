@@ -16,9 +16,7 @@ class AnswersController < ApplicationController
 
   def create
     @lesson = Lesson.find_by_id(params[:lesson_id])
-    @answer = Answer.new(answer_params)
-    @answer.lesson_id = @lesson.id
-    @word = @lesson.next_word
+    @answer = @lesson.answers.new(answer_params)
     if @answer.save
       flash[:success] = "Your answer has been saved."
       redirect_to new_lesson_answer_path(@lesson)
