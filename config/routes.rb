@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   root 'pages#home'
   
   get 'signup',   to: 'users#new'
@@ -15,7 +13,8 @@ Rails.application.routes.draw do
   resources :lessons do
     resources :answers
   end
-
+  resources :relationships, only: [:create, :destroy]
+  
   namespace :admin do
     resources :users
     resources :categories do
