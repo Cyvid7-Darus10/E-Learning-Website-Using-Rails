@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :lessons do
     resources :answers
   end
-
+  resources :relationships, only: [:create, :destroy]
+  
   namespace :admin do
     resources :users
     resources :categories do
