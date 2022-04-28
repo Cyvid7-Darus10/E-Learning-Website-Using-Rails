@@ -21,16 +21,16 @@
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <h4><span class="fw-bolder">5</span> following</h4>
+                        <h4><span class="fw-bolder"><%= @user.followings.count %></span> following</h4>
                     </div>
                     <div class="col-6">
-                        <h4><span class="fw-bolder">4</span> followers</h4>
+                        <h4><span class="fw-bolder"><%= @user.followers.count %></span> followers</h4>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="p-3 rounded text-center bg-danger">
-                    <h1 class="fw-bolder">5</h1>
+                    <h1 class="fw-bolder"><%= @user.lessons.distinct.pluck(:category_id).count %></h1>
                     <p>words learned</p>
                 </div>
             </div>

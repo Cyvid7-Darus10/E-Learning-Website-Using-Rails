@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
+  before_action :logged_in_user
+  
   def index
     @filter = params[:filter] ? params[:filter] : ""
     @lessons = Lesson.where(user_id: current_user.id)
-    
+
     if @filter == "learned"
       @categories = Category.where(id: @lessons.pluck(:category_id))
     elsif @filter == "not_learned"
