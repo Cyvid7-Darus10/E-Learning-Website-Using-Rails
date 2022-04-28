@@ -1,14 +1,16 @@
 class CategoriesController < ApplicationController
   def index
     @filter = params[:filter] ? params[:filter] : ""
-
-    @categories = Category.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
-
+    @lessons = Lesson.where(user_id: current_user.id)
+    
     if @filter == "learned"
-      # Get the learned categories
+      @categories = Category.where(id: @lessons.pluck(:category_id))
     elsif @filter == "not_learned"
-      # Get the not learned categories
+      @categories = Category.where.not(id: @lessons.pluck(:category_id))
+    else
+      @categories = Category.all
     end
 
+    @categories = @categories.paginate(page: params[:page], per_page: 6).order(created_at: :desc)
   end
 end
