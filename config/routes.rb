@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'signup',   to: 'users#new'
   get 'about',    to: 'pages#about'
   get 'contact',  to: 'pages#contact'
+  get 'dashboard',to: 'pages#dashboard'
   get 'login',    to: 'sessions#new'
   get 'logout',   to: 'sessions#destroy'
 

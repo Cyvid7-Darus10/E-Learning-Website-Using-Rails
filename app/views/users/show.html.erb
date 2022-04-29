@@ -4,11 +4,7 @@
         <div class="card glass-background">
             <div class="card-body text-center">
                 <div class="col-4 mx-auto">
-                <% if @user.image.attached? %>
-                    <%= image_tag @user.image, class: "rounded-circle w-100" %>
-                <% else %>
-                    <%= profile_image(@user) %>
-                <% end %>
+                    <%= render 'shared/profile_image', user: @user %>
                 </div>
                 <h3><%= @user.name %></h3>
                 <p><%= @user.email %></p>
@@ -39,8 +35,6 @@
     <div class="col-lg-8">
         <h2 class="fw-bolder mt-3 mt-lg-0">Feed</h2>
         <hr>
-        <div class="d-flex align-items-center glass-background p-2 rounded">
-            Nothing to Show
-        </div>
+        <%= render 'shared/activity_lists' %>
     </div>
 </div>

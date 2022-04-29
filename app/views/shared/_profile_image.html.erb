@@ -1,0 +1,5 @@
+<% if user.image.attached? %>
+    <%= image_tag user.image, class: "rounded-circle w-100" %>
+<% else %>
+    <%= profile_image(user) %>
+<% end %>

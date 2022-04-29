@@ -11,10 +11,10 @@
 
             <div class="collapse navbar-collapse w-100 p-0 pe-lg-4" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <%= link_to "Home", root_path, class:"nav-link fw-bolder" %>
-                    </li>
                     <% if !logged_in? %>
+                        <li class="nav-item">
+                            <%= link_to "Home", root_path, class:"nav-link fw-bolder" %>
+                        </li>
                         <li class="nav-item">
                             <%= link_to "About", about_path, class:"nav-link fw-bolder" %>
                         </li>
@@ -28,6 +28,9 @@
                             <%= link_to "Log in", login_path, class:"nav-link fw-bolder" %>
                         </li>
                     <% else %>
+                        <li class="nav-item">
+                            <%= link_to "Dashboard", dashboard_path, class:"nav-link fw-bolder" %>
+                        </li>
                         <li class="nav-item">
                             <%= link_to "Categories", categories_path, class:"nav-link fw-bolder" %>
                         </li>
