@@ -17,7 +17,6 @@ class Lesson < ApplicationRecord
   end
 
   def initialize_activity
-    activity = Activity.new(user_id: user.id, action_id: self.id, action_type: "Lesson")
-    activity.save
+    create_activity(user_id: user.id)
   end
 end

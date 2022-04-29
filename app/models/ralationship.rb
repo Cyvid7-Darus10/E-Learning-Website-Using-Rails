@@ -6,7 +6,6 @@ class Ralationship < ApplicationRecord
   after_create :initialize_activity
 
   def initialize_activity
-    activity = Activity.new(user_id: follower_id, action_id: self.id, action_type: "Ralationship")
-    activity.save
+    create_activity(user_id: follower_id)
   end
 end
