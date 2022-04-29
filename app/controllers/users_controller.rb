@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @activities = Activity.where(user_id: @user.id)
+    @activities = @activities.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
   end
 
   def edit

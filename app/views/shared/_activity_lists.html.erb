@@ -1,0 +1,47 @@
+<% @activities.each do |activity| %>
+    <div class="col-12">
+        <div class="card mb-3 glass-background">
+            <div class="row card-body">
+                <% if activity.action_type == "Ralationship" %>
+                    <div class="col-1">
+                        <%= render 'shared/profile_image', user: activity.action.follower %>
+                    </div>
+                    <div class="col-11">
+                        <% if activity.user_id == current_user.id %>
+                            <%= link_to "You", user_path(activity.action.follower), class:"text-decoration-none" %>
+                        <% else %>
+                            <%= link_to activity.action.follower.name, user_path(activity.action.follower), class:"text-decoration-none" %>
+                        <% end %>
+                        &nbspfollowed&nbsp 
+                        <% if activity.action.followed == current_user %>
+                            <%= link_to "You", user_path(activity.action.followed), class:"text-decoration-none" %>
+                        <% else %>
+                            <%= link_to activity.action.followed.name,  activity.action.followed, class:"text-decoration-none" %>
+                        <% end %>
+                    </div>
+                <% elsif activity.action_type == "Lesson" %>
+                    <div class="col-1">
+                        <%= render 'shared/profile_image', user: activity.action.user %>
+                    </div>
+                    <div class="col-11">
+                        <% if activity.user_id == current_user.id %>
+                            <%= link_to "You", user_path(activity.action.user), class:"text-decoration-none" %>
+                        <% else %>
+                            <%= link_to activity.action.user.name, user_path(activity.action.user), class:"text-decoration-none" %>
+                        <% end %>
+                        <%= "learned #{pluralize(activity.action.answers.count, 'word')} in" %> 
+                        <%= link_to activity.action.category.title, [:admin, activity.action.category], class: 'text-decoration-none' %>
+                    </div>
+                <% end %>
+            </div>                   
+        </div>
+    </div>
+<% end %>
+
+<% if @activities.count == 0 %>
+    No Activities to Show
+<% end %>
+
+<div class="d-flex justify-content-center">
+    <%= will_paginate @activities %>
+</div>	
