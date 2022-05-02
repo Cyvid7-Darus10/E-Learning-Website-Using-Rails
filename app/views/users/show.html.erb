@@ -30,7 +30,7 @@
             </div>
             <div class="card-footer">
                 <div class="p-3 rounded text-center bg-danger">
-                    <h1 class="fw-bolder"><%= @user.lessons.distinct.pluck(:category_id).count %></h1>
+                    <%= link_to @user.words.count, lessons_path(id: @user), class:"text-decoration-none h1" %>
                     <p>words learned</p>
                 </div>
             </div>

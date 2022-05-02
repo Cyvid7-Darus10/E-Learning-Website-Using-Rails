@@ -2,6 +2,9 @@ class LessonsController < ApplicationController
   before_action :logged_in_user
   
   def index
+    @user = User.find_by_id(params[:id])
+    @lessons = Lesson.where(user_id: @user.id)
+    @lessons = @lessons.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
   end
 
   def create

@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :lessons, dependent: :destroy
   has_many :categories, through: :lessons
+  has_many :words, through: :lessons
 
   has_many :received_follows, foreign_key: :followed_id, class_name: "Ralationship"
   has_many :followers, through: :received_follows, source: :follower
