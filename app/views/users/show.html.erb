@@ -17,10 +17,14 @@
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <h4><span class="fw-bolder"><%= @user.followings.count %></span> following</h4>
+                        <a class="h4 text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#followingModal">
+                            <%= "#{@user.followings.count} following" %>
+                        </a>
                     </div>
                     <div class="col-6">
-                        <h4><span class="fw-bolder"><%= @user.followers.count %></span> followers</h4>
+                        <a class="h4 text-decoration-none" href="" data-bs-toggle="modal" data-bs-target="#followersModal">
+                            <%= "#{@user.followers.count} followers" %>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -38,3 +42,6 @@
         <%= render 'shared/activity_lists' %>
     </div>
 </div>
+
+<%= render "shared/relationship_modal", lists: @user.followings, id: "followingModal", title: "Followings" %>
+<%= render "shared/relationship_modal", lists: @user.followers, id: "followersModal", title: "Followers" %>
