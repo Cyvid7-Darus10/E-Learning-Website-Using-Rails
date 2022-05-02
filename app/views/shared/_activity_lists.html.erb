@@ -38,8 +38,12 @@
     </div>
 <% end %>
 
-<% if @activities.count == 0 %>
-    No Activities to Show
+<% if @activities.empty? %>
+    <div class="col-12">
+        <div class="card mb-3 glass-background">
+            No Activities to Show        
+        </div>
+    </div>
 <% end %>
 
 <div class="d-flex justify-content-center">
