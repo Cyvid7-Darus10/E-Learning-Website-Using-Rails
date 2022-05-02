@@ -1,2 +1,39 @@
-<h1>Lessons#index</h1>
-<p>Find me in app/views/lessons/index.html.erb</p>
+<div class="container">
+    <span class="display-6 text-center">
+        Lessons | <%= @user.name %>
+    </span>
+    <div class="col-lg-8 mx-auto my-3">
+        <% @lessons.each_with_index do |lesson, index| %>
+            <div class="col-12">
+                <div class="card mb-3 glass-background">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href=<%="#collapse#{index}"%> role="button" aria-expanded="false" aria-controls="collapse">
+                        <div class="card-body">
+                            <%= "Lesson Title: #{lesson.category.title}" %>
+                        </div>
+                    </a> 
+                    <div class="collapse" id=<%="collapse#{index}"%>>     
+                        <div class="card-footer">
+                            <% lesson.category.words.each do |word| %>
+                                <p class="text-primary">
+                                    <%= word.content %>
+                                </p>
+                            <% end %>
+                        </div>     
+                    </div>           
+                </div>
+            </div>
+        <% end %>
+
+        <% if @lessons.empty? %>
+            <div class="col-12">
+                <div class="card mb-3 glass-background">
+                    <%= @user_id  %>
+                </div>
+            </div>
+        <% end %>
+
+        <div class="d-flex justify-content-center">
+            <%= will_paginate @lessons %>
+        </div>	
+    </div>
+</div>
