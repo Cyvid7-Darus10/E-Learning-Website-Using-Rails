@@ -24,7 +24,11 @@
                                 <h4><%= link_to category.title, '', class: "text-decoration-none" %></h4>
                                 <p class="text-warning">[<%= category.words.count %> Words]</p>
                                 <p><%= category.description %></p>
-                                <%= button_to "Learn", lessons_path(category_id: category.id), class: "btn btn-primary w-100"  %>
+                                <% if current_user.lessons.exists?(category_id: category.id) %>
+                                    <%= button_to "Show Score", lesson_path(current_user.lessons.find_by(category_id: category.id)), :method => :get, class: "btn btn-danger w-100"  %>
+                                <% else %>
+                                    <%= button_to "Learn", lessons_path(category_id: category.id), class: "btn btn-primary w-100"  %>
+                                <% end %>
                             </div>
                         </div>                    
                     </div>

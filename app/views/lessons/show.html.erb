@@ -1,18 +1,14 @@
 <% provide(:title, 'Show Score') %>
 <div class="container mt-3">
     <div class="col-xl-6 text-center mx-auto glass-background p-3 rounded">
-        <h1 class="text-info">
-            <%= @lesson.category.title %>
-        </h1>
-        <h3 class="text-info">
-            <%= @lesson.category.description %>
-        </h3>
+        <h1 class="text-info"><%= @lesson.category.title %></h1>
+        <h3 class="text-info"><%= @lesson.category.description %></h3>
         <hr>
         <span class="display-6">
-            Your Score is: 
-            <span class="text-danger">
-                <%= @lesson.score %>
-            </span>
+            Your score is: 
+            <span class="text-danger"><%= @lesson.score %></span>
         </span>
+        <hr>
+        <%= button_to "Relearn", lessons_path(category_id: @lesson.category_id), class: "btn btn-danger w-100"  %>
     </div>
 </div>

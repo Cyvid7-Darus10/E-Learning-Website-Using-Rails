@@ -5,7 +5,13 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(category_id: params[:category_id], user_id: current_user.id)
+    if @lesson = Lesson.find_by(user_id: current_user.id, 
+                                category_id: params[:category_id])
+      @lesson.destroy
+    end
+
+    @lesson = Lesson.new(category_id: params[:category_id], 
+                         user_id: current_user.id)
     if @lesson.save
       flash[:success] = "Your lesson has been created."
       redirect_to new_lesson_answer_path(@lesson)
